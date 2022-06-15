@@ -1,4 +1,5 @@
 const express = require('express')
+require('./config/monogoose')
 const port = process.env.PORT || 3030
 app = express()
 
