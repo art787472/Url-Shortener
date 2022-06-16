@@ -1,6 +1,6 @@
 
 const { default: mongoose } = require('mongoose')
-const db = require('./config/monogoose')
+const db = require('../config/monogoose')
 const Schema = mongoose.Schema
 const urlSchema = new Schema ({
   url: {

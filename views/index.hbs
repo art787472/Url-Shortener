@@ -1,0 +1,8 @@
+<form action="/shorten" method="POST">
+  <input type="text" required placeholder="輸入網址" name="url">
+  <input type="submit">
+
+  {{#if token}}
+    <a href="http://localhost:3030/shorten/{{token}}">localhost:3030/shorten/{{token}}</a>
+  {{/if}}
+</form>
