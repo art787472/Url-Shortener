@@ -16,7 +16,7 @@ async function findToken (url) {
 async function createToken( url, token) {
   try{
     const data = await Url.create({ url, token })
-    return data.toke
+    return data.token
   } catch (error) {
     if(error.message.includes('duplicate key error')){
       const token = getToken()
