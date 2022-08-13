@@ -1,19 +1,60 @@
 <div class="container">
   <h1>URL shortener</h1>
-  <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="">
-  <form action="/shorten" method="POST">
+  <a href="../">
+    <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt="">
+  </a>
+  
 
-  {{#unless token}}
-  <input type="text" required placeholder="輸入網址" name="url">
-  <input type="submit">
+  {{#unless url}}
+  {{#unless errorMessage}}
+  <form action="/shorten" method="POST" class="input-form" id="input-form">
+    <input class="input-url" type="text"  placeholder="http(s)://" name="url" >
+    <button  class="input-btn" type="submit" form="input-form">shorten</button>
+  </form>
+
+  {{/unless}}
   {{/unless}}
 
   
-</form>
-  {{#if token}}
+
+  {{#if url}}
     <h2>Success! Please use the link:</h2>
-    <a href="http://localhost:3030/shorten/{{token}}">localhost:3030/shorten/{{token}}</a>
-    <button>copy</button>
+    <a href="{{ url }}" class="link">{{ url }}</a>
+    <button class="copy-btn">copy</button>
+  {{/if}}
+
+  {{#if errorMessage}}
+    <h2>Sorry...we have some problems...<br>{{ errorMessage }}</h2>
+    <a href="../">Back</a>
   {{/if}}
 </div>
 
+<script>
+const link = document.querySelector('.link')
+const copyBtn = document.querySelector('.copy-btn')
+const inputUrl = document.querySelector('.input-url')
+const inputForm = document.querySelector('.input-form')
+const submitBtn = document.querySelector('.input-btn')
+
+if (inputForm) {
+  inputForm.addEventListener('submit', e => {
+  if (inputUrl.value.trim().length === 0) {
+    e.stopPropagation()
+    e.preventDefault()
+    alert('Input value cannot be empty.')
+  }
+  submitBtn.disabled = true
+})
+
+}
+
+if (copyBtn) {
+  copyBtn.addEventListener('click', e => {
+  navigator.clipboard.writeText(link.textContent)
+  e.target.classList.add('clicked')
+
+})
+}
+
+
+</script>
