@@ -18,7 +18,7 @@
    `cd Url-Shortener`
 3. 安裝 npm 套件  
    `npm install`
-4. 在目錄中建立 .env 檔案，根據 .env.example 格式，將及 mogonDB 相關資訊填入。  
+4. 在目錄中建立 .env 檔案，根據 .env.example 格式，將 mogonDB 相關資訊填入。  
 5. 終端機輸入 npm start  
    `npm start`
 6. 依照 terminal 上的指示在瀏覽器輸入 http://localhost:[你的port]
