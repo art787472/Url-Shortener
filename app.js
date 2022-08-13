@@ -14,9 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(routes)
 
-
 app.listen(port, () => {
   console.log(`app is listening on ${port}`)
 })
-
-
