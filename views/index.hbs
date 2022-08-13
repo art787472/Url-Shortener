@@ -43,6 +43,7 @@ if (inputForm) {
     e.stopPropagation()
     e.preventDefault()
     alert('Input value cannot be empty.')
+    return
   }
   submitBtn.disabled = true
 })
@@ -53,6 +54,9 @@ if (copyBtn) {
   copyBtn.addEventListener('click', e => {
   navigator.clipboard.writeText(link.textContent)
   e.target.classList.add('clicked')
+  setTimeout(() => {
+    e.target.classList.remove('clicked')
+  }, 3000)
 
 })
 }

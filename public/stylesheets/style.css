@@ -52,6 +52,7 @@ a {
 
 .copy-btn {
   position: relative;
+  margin-bottom: 2rem;
 }
 
 .copy-btn::after {
