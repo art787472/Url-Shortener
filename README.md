@@ -15,7 +15,7 @@
 1. 將此專案 clone 至本機  
    `git clone https://github.com/art787472/Url-Shortener.git`
 2. 進入存放專案的資料夾  
-   `cd url-shortener`
+   `cd Url-Shortener`
 3. 安裝 npm 套件  
    `npm install`
 4. 在目錄中建立 .env 檔案，根據 .env.example 格式，將及 mogonDB 相關資訊填入。  
