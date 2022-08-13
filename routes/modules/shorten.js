@@ -15,13 +15,13 @@ async function findToken (url) {
 
 async function createToken( url, token) {
   try{
-
     const data = await Url.create({ url, token })
-    return data.token
-
+    return data.toke
   } catch (error) {
-    const token = getToken()
-    if(error.message.includes('duplicate key error')) return createToken(url, token)
+    if(error.message.includes('duplicate key error')){
+      const token = getToken()
+      return createToken(url, token)
+    } 
     throw error
   }
 }
@@ -30,11 +30,11 @@ router.post('/', (req, res) => {
   const url = req.body.url
   const token = getToken()
 
-  return  findToken(url)
+  return  findToken(url)// find url in db
             .then(data => {
               if (data.length === 0) {
-                return axios.get(url)
-                          .then(() => createToken( url, token )
+                return axios.get(url) // ensure url can be connected
+                          .then(() => createToken( url, token )// if fuond, create data
                                       .then(token => {
                                         return res.redirect(`/?token=${token}`)})
                                       .catch(error => {
